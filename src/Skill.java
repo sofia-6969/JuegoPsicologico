@@ -1,10 +1,10 @@
 // Esta clase define una habilidad simple con su nombre, daño y descripción.
 public class Skill {
-    String id; // Identificador único para la habilidad
-    String nombre;
-    int danoMin;
-    int danoMax;
-    String descripcion;
+    final String id; // Identificador único para la habilidad
+    final String nombre;
+    final int danoMin;
+    final int danoMax;
+    final String descripcion;
 
     // Constructor para crear una nueva habilidad
     public Skill(String id, String nombre, int danoMin, int danoMax, String descripcion) {
@@ -16,9 +16,7 @@ public class Skill {
     }
 
     // Método para calcular el daño que una habilidad inflige
-    // Necesita un objeto Random para generar un número aleatorio dentro del rango de daño.
     public int calcularDano(java.util.Random random) {
-        // Genera un número aleatorio entre danoMin y danoMax (inclusive)
-        return random.nextInt(danoMax - danoMin + 1) + danoMin;
+        return danoMin == danoMax ? danoMin : random.nextInt(danoMax - danoMin + 1) + danoMin;
     }
 }
